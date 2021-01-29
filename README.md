@@ -56,3 +56,25 @@ test('should first name', () => {
 ```
 
 *Fix:* unless there is 0 or 1 item in the array, prevent `shuffleArray()` from ever giving back the array back in the same order.
+
+## Patterns
+
+### "Don't mock what you don't own"
+
+Your dependency can change over time. Instead of mocking a module you don't own, give your dependencies what they need so you can test their output.
+
+```
+test('should get list of patients from CSV', () => {
+  // given
+  const filepath = `${__dirname}/testing/patient-data.csv`;
+  const createStream = fs.createReadStream(filepath); // 👈 produces a filestream of our test CSV
+  const expected = [{id: 1, name: "Zach"}]
+  
+  // when
+  const report = new Report();
+  await report.uploadPatientsCsv(createStream); // 👈 uses neatCsv() to transform a CSV file into JSON
+  
+  // then
+  expect(report.patients).toBe(expected);    
+});
+```
