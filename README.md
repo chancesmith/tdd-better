@@ -4,6 +4,20 @@ Learning to write tests and the vocabulary of patterns and pitfalls.
 
 ## Pitfalls
 
+### Test Fixture
+Found out this weekend that the initial data each test starts with is called a [Test Fixture](https://en.wikipedia.org/wiki/Test_fixture). Now we can talk the lingo.
+```
+test('should make word uppercase', () => {
+  // given
+  const word = 'special'; // Test Fixture 👈
+  const expected = 'SPECIAL';
+  // when
+  const result = word.toUpperCase();
+  // then
+  expect(result).toBe(expected)
+});
+```
+
 ### Obscure Test
 > An *Obscure Test* is when you’re having trouble understanding the behavior a test is verifying. - [xunitpatterns](http://xunitpatterns.com/Obscure%20Test.html)
 
