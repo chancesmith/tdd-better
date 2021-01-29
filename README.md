@@ -5,10 +5,10 @@ Learning to write tests and the vocabulary of patterns and pitfalls.
 ## Pitfalls
 
 ### Obscure Test
-> An *Obscure Test* is when you’re having trouble understanding the behavior a test is verifying.
+> An *Obscure Test* is when you’re having trouble understanding the behavior a test is verifying. - [xunitpatterns](http://xunitpatterns.com/Obscure%20Test.html)
 
 A common cause of Obscure Tests is when you have a *Mystery Guest*.
-> *Mystery Guest* - The test-reader/developer is not able to see the cause and effect between fixture and verification logic because part of it is done outside the Test Method.
+> *Mystery Guest* - The test-reader/developer is not able to see the cause and effect between fixture and verification logic because part of it is done outside the Test Method. - [xunitpatterns](http://xunitpatterns.com/Obscure%20Test.html#Mystery%20Guest)
 
 ```
 const NAME = 'Spencer Moore';
@@ -24,7 +24,7 @@ test('should first name', () => {
 ```
 
 ### Erratic Test
-> Sometimes it passes and sometimes it fails
+> Sometimes it passes and sometimes it fails - [xunitpatterns](http://xunitpatterns.com/Erratic%20Test.html)
 
 This was an example from FunFact.
 
